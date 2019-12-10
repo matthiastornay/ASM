@@ -1,6 +1,6 @@
 % Notes concerning the primality test
 
-The __C code__ from which I adapted the primality test can be found here: http://rosettacode.org/wiki/Primality_by_trial_division#C.
+The __C code__ from which I adapted the primality test can be found here : rosettacode.org/wiki/Primality_by_trial_division#C.
 
     int is_prime(unsigned int n) {
   
@@ -20,4 +20,5 @@ The program is particulary inefficient and long when N increases. Performances a
 non-prime numbers, as shown in the following diagrams. The main reason seems to be the slowness
 of the modulo function I used.
 
-![](/assets/N_instructions_primes.png)
+![Primes numbers](/assets/N_instructions_primes.png)
+![Non-primes numbers](/assets/N_instructions_not_primes.png)

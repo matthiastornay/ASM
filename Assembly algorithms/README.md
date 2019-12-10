@@ -22,6 +22,6 @@ The program is particulary inefficient and long when N increases. Performances a
 non-prime numbers, as shown in the following diagrams. The main reason seems to be the slowness
 of the modulo function I used.
 
-<p align=center ![Non-primes numbers](/assets/N_instructions_not_primes.png)> </p>
+<div style="text-align:center"><img src=/assets/N_instructions_not_primes.png /></div>
 
-<p align=center ![Primes numbers](/assets/N_instructions_primes.png)> </p>
+<div style="text-align:center"><img src=/assets/N_instructions_primes.png /></div>

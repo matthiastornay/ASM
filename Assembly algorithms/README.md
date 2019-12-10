@@ -1,6 +1,6 @@
 # Notes concerning the primality test
 
-The __C code__ from which I adapted the primality test can be found here : rosettacode.org/wiki/Primality_by_trial_division#C.
+The __C code__ from which I adapted the primality test can be found on [RosettaCode](http://rosettacode.org/wiki/Primality_by_trial_division#C) .
 
     int is_prime(unsigned int n) {
   
@@ -15,6 +15,8 @@ The __C code__ from which I adapted the primality test can be found here : roset
         return 1;
     
     }
+
+***
 
 The program is particulary inefficient and long when N increases. Performances are really bad for
 non-prime numbers, as shown in the following diagrams. The main reason seems to be the slowness

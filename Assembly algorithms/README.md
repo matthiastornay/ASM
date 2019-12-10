@@ -1,4 +1,4 @@
-% Notes concerning the primality test
+# Notes concerning the primality test
 
 The __C code__ from which I adapted the primality test can be found here : rosettacode.org/wiki/Primality_by_trial_division#C.
 
@@ -21,4 +21,5 @@ non-prime numbers, as shown in the following diagrams. The main reason seems to 
 of the modulo function I used.
 
 ![Primes numbers](/assets/N_instructions_primes.png)
+
 ![Non-primes numbers](/assets/N_instructions_not_primes.png)

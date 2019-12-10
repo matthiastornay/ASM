@@ -20,4 +20,4 @@ The program is particulary inefficient and long when N increases. Performances a
 non-prime numbers, as shown in the following diagrams. The main reason seems to be the slowness
 of the modulo function I used.
 
-![Tux, the Linux mascot](/assets/images/tux.png)
+!(/assets/N_instructions_primes.png)

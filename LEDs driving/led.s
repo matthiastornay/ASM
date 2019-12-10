@@ -7,58 +7,57 @@
 .global Led_on
 .global wait
 
-LED_init:	mov r4,lr
- 			push {r4}
+LED_init:	MOV r4,lr
+		PUSH {r4}
 
-			// configuration de la clock avec RCC
- 			movw r0, #:lower16:RCC_AHBENR
-  			movt r0, #:upper16:RCC_AHBENR
-  			ldr r1, [r0]
+		// RCC clock configuation
+		MOVW r0, #:lower16:RCC_AHBENR
+		MOVT r0, #:upper16:RCC_AHBENR
+		LDR r1, [r0]
 
-  			// mise en place du masque
-  			movw r2, #:lower16:0x00200000
-  			movt r2, #:upper16:0x00200000
+		// setting mask
+		MOVW r2, #:lower16:0x00200000
+		MOVT r2, #:upper16:0x00200000
 
- 			orr r1, r1, r2 // on applique le masque
- 			str r1, [r0] // on enregistre le registre masquée dans r0
+		ORR r1, r1, r2 // applying mask
+		STR r1, [r0] // replacing the previous configuration of RCC_AHBENR
 
-			// accès au registre de configuration du mode
-			movw r0, #:lower16:GPIOE_MODER
-			movt r0, #:upper16:GPIOE_MODER
+		// GPIOE_MODER configuration
+		MOVW r0, #:lower16:GPIOE_MODER
+		MOVT r0, #:upper16:GPIOE_MODER
 
-			// configuration en mode OUTPUT
-			movw r1, #:lower16:0x55550000
-			movt r1, #:upper16:0x55550000
+		// setting in OUTPUT
+		MOVW r1, #:lower16:0x55550000
+		MOVT r1, #:upper16:0x55550000
 
-			str r1, [r0] // on place la valeur de configuration en mode OUTPUT
+		STR r1, [r0] // replacing the previous configuration of GPIOE_MODER
 
- 			pop {r4}
-			mov lr,r4
-			bx lr
+		POP {r4}
+		MOV lr,r4
+		BX lr
 
-Led_on:		mov r4,lr
- 			push {r4}
+Led_on:		MOV r4,lr
+		PUSH {r4}
 
- 			movw r4, #:lower16:GPIOE_ODR
- 			movt r4, #:upper16:GPIOE_ODR
+		MOVW r4, #:lower16:GPIOE_ODR
+		MOVT r4, #:upper16:GPIOE_ODR
 
-			str r0, [r4]
+		STR r0, [r4]
 
- 			pop {r4}
-			mov lr,r4
-			bx lr
+		POP {r4}
+		MOV lr,r4
+		BX lr
 
-wait:		mov r4,lr
- 			push {r4}
+wait:		MOV r4,lr
+		PUSH {r4}
 
- 			bl loop
+		BL loop
 
- 			pop {r4}
-			mov lr,r4
-			bx lr
+		POP {r4}
+		MOV lr,r4
+		BX lr
 
-loop:		sub r0, r0, #1
-			cmp r0, #1
-			bge loop
-			bx lr
-
+loop:		SUB r0, r0, #1
+		CMP r0, #1
+		BGE loop
+		BX lr

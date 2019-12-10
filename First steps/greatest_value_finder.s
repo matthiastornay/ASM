@@ -3,7 +3,7 @@
 
 .data
 
-vector: 	.int 1,236,3,154,32,11,236,153,254,35
+vector: 	.int 1, 236, 3, 154, 32, 11, 236, 153, 254, 35
 max: 		.int 0
 mul_by_17: 	.int 0 // for the purpose of training, the MUL instruction is prohibited
 

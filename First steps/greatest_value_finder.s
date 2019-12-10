@@ -10,36 +10,36 @@ mul_by_17: 	.int 0 // for the purpose of training, the MUL instruction is prohib
 .text
 .global main
 
-main:	ldr r0, =vector
-	mov r1, #0 // index
-	ldr r2, [r0] // actual vmax
-	ldr r4, =max // vmax address
+main:	LDR r0, =vector
+	MOV r1, #0 // index
+	LDR r2, [r0] // actual vmax
+	LDR r4, =max // vmax address
 
-increment:	add r1, r1, #1
-		add r0, r0, #4
+increment:	ADD r1, r1, #1
+		ADD r0, r0, #4
 
-test:	ldr r3, [r0]
-	cmp r2, r3
-	blt replace
-	b looping
+test:	LDR r3, [r0]
+	CMP r2, r3
+	BLT replace
+	B looping
 
-replace:	mov r2, r3
+replace:	MOV r2, r3
 
-looping:	cmp r1, #N
-		ble increment
-		str r2, [r4]
+looping:	CMP r1, #N
+		BLE increment
+		STR r2, [r4]
 
-multiply_init:	ldr r5, =mul_by_17
-		mov r1, #0
-		mov r6, r2
+multiply_init:	LDR r5, =mul_by_17
+		MOV r1, #0
+		MOV r6, r2
 
-multiply:	add r1, r1, #1
-		add r2, r2, r6
-		cmp r1, #TIMES
-		blt multiply
-		str r2, [r5]
+multiply:	ADD r1, r1, #1
+		ADD r2, r2, r6
+		CMP r1, #TIMES
+		BLT multiply
+		STR r2, [r5]
 		b end
 
-end:	bx lr
+end:	BX lr
 
 .end
